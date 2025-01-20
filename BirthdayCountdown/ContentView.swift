@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let mytime = Date()
+   
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            HStack{
+            Text("DD")
+            Text("MM")
+        }
+            Text("Feedback")
+            Text("Current Date is: \(mytime)")
+            
         }
         .padding()
     }
