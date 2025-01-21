@@ -10,12 +10,11 @@ import SwiftUI
 struct ContentView: View {
     
     let mytime = Date()
-   
+  
    @State private var givenInputDD = ""
     @State private var givenInputMM = ""
     @State private var feedback = ""
-   
-   
+
    
     var body: some View {
        
@@ -29,11 +28,10 @@ struct ContentView: View {
                 TextField("Type", text: $givenInputDD)
         }
             Text("\(feedback)")
-            HStack{
-Text("Placeholder")
-        }
-           
-            Text("Current Date is: \(mytime)")
+            Text("Your birthday is (day/month): \(givenInputDD)/\(givenInputMM)")
+            
+           Text("Placeholder")
+        
             
         }
         .padding()
