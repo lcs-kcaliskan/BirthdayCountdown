@@ -14,9 +14,9 @@ struct ContentView: View {
     
     @State private var givenInputDD = ""
     @State private var givenInputMM = ""
-    @State private var feedback = ""
-    @State private var daysUntilBirthday = ""
-
+    @State private var feedback: String? = nil
+    @State private var daysUntilBirthday: Int? = nil
+    
     // MARK: Computed properties
     var body: some View {
         
@@ -29,7 +29,6 @@ struct ContentView: View {
                 Text("Enter your birth date(1-31):")
                 TextField("Type", text: $givenInputDD)
             }
-            Text("\(feedback)")
             Text("Your birthday is (day/month): \(givenInputDD)/\(givenInputMM)")
             
             Text("Placeholder")
@@ -40,19 +39,21 @@ struct ContentView: View {
     }
     
     // MARK: Functions
-    func checkTextFields() {
-        guard let selectedMonth =  Int(givenInputMM) else {
-            feedback = "Please provide an integer."
-            return
-        }
-        guard let selectedDay =  Int(givenInputDD) else {
-            feedback = "Please provide an integer."
-            return
-        }
+    func calculateDaysUntilNextBirthday() {
+        feedback = nil
+        daysUntilBirthday = nil
         
+        guard let month = Int(givenInputMM), month >= 1, month <= 12 else {
+            feedback = "Please enter a valid month (1-12)."
+            return
+        }
+        guard let day = Int(givenInputDD), day >= 1, day <= 31 else {
+            feedback = "Please enter a valid day between 1-31."
+            return
+        }
     }
-}
+    
+    #Preview {
+        ContentView()
+    }
 
-#Preview {
-    ContentView()
-}
