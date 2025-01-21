@@ -11,13 +11,20 @@ struct ContentView: View {
     
     let mytime = Date()
    
-   let givenInputDD = "14"
-   let givenInputMM = "10"
-    let selectedNumberDD = Int(givenInputDD)!
-    let selectedNumberMM = Int(givenInputMM)!
+   @State private var givenInputDD = ""
+    @State private var givenInputMM = ""
+   
     var body: some View {
        
         VStack {
+            HStack{
+            Text("Enter your birth month(1-12):")
+                TextField("Type", text: $givenInputMM)
+        }
+            HStack{
+            Text("Enter your birth date(1-31):")
+                TextField("Type", text: $givenInputDD)
+        }
             HStack{
             Text("Birthday(DD/MM):\(givenInputDD)/\(givenInputMM)")
 
