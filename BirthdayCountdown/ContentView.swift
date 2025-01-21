@@ -13,6 +13,9 @@ struct ContentView: View {
    
    @State private var givenInputDD = ""
     @State private var givenInputMM = ""
+    @State private var feedback = ""
+   
+   
    
     var body: some View {
        
@@ -25,11 +28,11 @@ struct ContentView: View {
             Text("Enter your birth date(1-31):")
                 TextField("Type", text: $givenInputDD)
         }
+            Text("\(feedback)")
             HStack{
-            Text("Birthday(DD/MM):\(givenInputDD)/\(givenInputMM)")
-
+Text("Placeholder")
         }
-            Text("Feedback")
+           
             Text("Current Date is: \(mytime)")
             
         }
