@@ -11,10 +11,8 @@ struct ContentView: View {
     
     // MARK: Stored properties
 
-    @State private var feedback: String? = nil
-    @State private var daysUntilBirthday: Int? = nil
-    @State private var date = Date()
-    @State private var birthday = Date()
+    @State private var currentDate = Date()
+    @State private var birthday = Date().addingTimeInterval(2 * 24 * 60 * 60)
     // MARK: Computed properties
     var body: some View {
         
@@ -24,33 +22,17 @@ struct ContentView: View {
             .labelsHidden()
             .padding(.horizontal)
                        
-            Button("Calculate Days Until Next Birthday") {
-                calculateDaysUntilNextBirthday()
-            }
-            
-            
-            if let feedback = feedback {
-            Text(feedback).foregroundColor(.red).padding(.top, 8)
-                       }
-                       
-            if let daysUntilBirthday = daysUntilBirthday {
-                Text("Days until your next birthday: \(daysUntilBirthday)")
-                       }
-            
+            Text(.currentDate, format: .reference(to: birthday))
             
         }
-        .padding()
     }
     
     // MARK: Functions
-    func calculateDaysUntilNextBirthday() {
-       
-        }
+   
         
     }
     
     
-}
 #Preview {
     ContentView()
 }
