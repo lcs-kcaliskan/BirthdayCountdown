@@ -31,7 +31,11 @@ struct ContentView: View {
             }
             Text("Your birthday is (day/month): \(givenInputDD)/\(givenInputMM)")
             
-            Text("Placeholder")
+            Button("Calculate Days Until Next Birthday") {
+                           calculateDaysUntilNextBirthday()
+                       }
+                       .padding()
+                       
             
             
         }
