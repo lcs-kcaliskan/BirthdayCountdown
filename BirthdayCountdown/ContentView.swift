@@ -32,10 +32,17 @@ struct ContentView: View {
             Text("Your birthday is (day/month): \(givenInputDD)/\(givenInputMM)")
             
             Button("Calculate Days Until Next Birthday") {
-                           calculateDaysUntilNextBirthday()
+                calculateDaysUntilNextBirthday()
+            }
+            
+            
+            if let feedback = feedback {
+            Text(feedback).foregroundColor(.red).padding(.top, 8)
                        }
-                       .padding()
                        
+            if let daysUntilBirthday = daysUntilBirthday {
+                Text("Days until your next birthday: \(daysUntilBirthday)")
+                       }
             
             
         }
@@ -56,9 +63,7 @@ struct ContentView: View {
             return
         }
     }
-    
 }
-
 #Preview {
     ContentView()
 }
